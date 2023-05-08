@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Bank Note Classification</title>
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/favicon.ico')}}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">XGBoostClassifier</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Exploration</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Machine learning</a></li>
+                        <li class="nav-item"><a class = "nav-link" href="#Conclusion">Conclusion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-primary bg-gradient text-white cover_pic" >
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">NoteFinder</h1>
+                <p class="lead">Detecting banknotes with ease</p>
+                <a class="btn btn-lg btn-light" href="#about">See Our Work Below</a>
+            </div>
+        </header>
+        <!-- About section-->
+        <section id="about">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>What does the project do?
+                        </h2>
+                        <p class="lead">This project aims to detect counterfeit banknotes using a dataset of numerical attributes such as variance and skewness of images. The project uses XGBoost, a popular machine learning algorithm, for classification. The dataset is divided into training and testing sets and cross-validated to choose the best hyperparameters for the XGBoost model. The model is then trained on the training set and tested on the testing set to evaluate its performance. Finally, the confusion matrices for the training and testing sets are displayed visually using the Plotly library, providing a clear representation of the model's predictions. The project's main goal is to provide an automated and reliable way of detecting counterfeit banknotes, enhancing security and reducing the risk of financial fraud.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services section-->
+        <section class="bg-light" id="services">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                    <h1 id="top-level-heading">Visualization</h1><br/>
+                    </div>
+                    <div class="col-lg-8">
+                        <h3>Exploration of Data: Univariate Plots</h3>
+                        <p class="lead">We've explored each variable in the dataset using univariate plots..</p>
+                        <p> The box plot is an effective way to visualize the distribution of numerical variables. For this dataset, we created 4 box plots, one for each of the numerical variables 'Image.Var', 'Image.Skew', 'Image.Curt', and 'Entropy'. Each box plot is split by the target variable class ('Bank Note' and 'Other'), allowing us to quickly compare the distribution of each variable for the two classes. We can see that for some variables, such as 'Image.Var' and 'Image.Skew', there is a noticeable difference in the distribution between the two classes, while for others, such as 'Entropy' and 'Image.Curt', the distributions are quite similar.
+
+Additionally, we created a bar chart for the target variable, which displays the number of instances in each class ('Bank Note' and 'Other'). This helps us understand the class distribution of the dataset and whether it is imbalanced or balanced. In this case, we can see that the number of instances in each class is relatively balanced, which is good for building a classification model. </p>
+                       <iframe width="1000" height="700" title="Boxplots" 
+	src="{{ url_for('static', filename = 'images/boxplot.html') }}"></iframe> 
+                      <iframe width="500" height="500" title="Bar Chart" 
+	src="{{ url_for('static', filename = 'images/barchart.html') }}"></iframe> 
+                    </div>
+                    <div class="col-lg-8">
+                        <h3>Exploration of Data: Confusion Matrix Heatmap</h3>
+                        <p class="lead">We've trained and tested the model, generating the following heatmap.</p>
+                        <p>The confusion matrix heatmap is a powerful tool for visualizing the performance of a machine learning model. It displays the number of correct and incorrect predictions made by the model for each class in a tabular format. The diagonal cells of the matrix represent the number of correct predictions, while the off-diagonal cells represent incorrect predictions. The heatmap provides a color-coded representation of the matrix, with colors ranging from lighter to darker shades, indicating the number of predictions in each cell. This allows for a quick and easy interpretation of the model's accuracy and misclassification rates. By exploring the confusion matrix heatmap, we can gain valuable insights into the performance of our model, identify areas for improvement, and make data-driven decisions to optimize its performance.</p>
+                       <iframe width="500" height="500" title="Confusion Matrix" 
+	src="{{ url_for('static', filename = 'images/fig_train.html') }}"></iframe> 
+                      <iframe width="500" height="500" title="Confusion Matrix" 
+	src="{{ url_for('static', filename = 'images/fig_test.html') }}"></iframe> 
+                    </div>
+                    <div class="col-lg-8">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact section-->
+        <section id="contact">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h1>Machine Learning</h1></br>
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>XGBoost Classifier: Explanation</h2>
+                        <p class="lead">XGBoost is a popular machine learning algorithm that helps us make predictions based on data. Imagine you have a set of images, some of which show real banknotes and some of which show fake banknotes. Your task is to teach the machine learning model how to tell the difference between real and fake banknotes based on features like the variance and skewness of the images. XGBoost helps you do this by using a mathematical model that analyzes these features and predicts whether a banknote is real or fake. The algorithm uses a process called gradient boosting to improve its accuracy over time, by making small adjustments to its predictions based on the mistakes it makes. With XGBoost, you can train a computer to identify real and fake banknotes quickly and accurately, helping to prevent financial fraud and improve security.</p>
+                        <img src="{{url_for('static', filename='images/Probability-Decision-Surface-for-Logistic-Regression-on-a-Binary-Classification-Task.png')}}" class="page-image" />
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="bg-light" id="Conclusion">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                    <h1 id="top-level-heading">Conclusion</h1><br/>
+                    </div>
+                    <div class="col-lg-8">
+
+                        <p class="lead">In conclusion, our project aimed to detect banknotes using numerical attributes of the images such as variance and skew. We used the XGBoost algorithm to classify the banknotes and achieved an accuracy of 99.1% on the testing dataset. We explored the data using various visualization techniques such as histograms, box plots, and confusion matrices. We observed that the variance attribute had the most significant impact on classifying the banknotes. Additionally, the confusion matrix heatmaps showed that our model had very few misclassifications. Our project's success indicates that numerical attributes of images can be used to classify banknotes accurately. This technique can be extended to other domains where numerical attributes of images can be used to classify and detect different objects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+          <!-- Page Content -->
+
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; 2023 AI Camp</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/js/scripts.js"></script>
+    </body>
+</html>
