@@ -65,6 +65,15 @@ Additionally, we created a bar chart for the target variable, which displays the
                       <iframe width="500" height="500" title="Bar Chart" 
 	src="{{ url_for('static', filename = 'images/barchart.html') }}"></iframe> 
                     </div>
+
+                    <div class="col-lg-8">
+                        <h3>Exploration of Data: Bivariate Heatmap</h3>
+                        <p class="lead">Visualizing the Correlation between Numerical Variables using Bivariate Heatmap</p>
+                        <p> A bivariate heatmap is a type of heatmap that displays the relationship between two variables. In this project, a bivariate heatmap is created to show the correlation between each pair of numerical variables in the dataset. The heatmap uses color to represent the strength of the correlation between two variables, with deep blue indicating a positive correlation and light blue indicating a negative correlation. This type of visualization is useful for identifying which pairs of variables are strongly correlated, which can help in feature selection for machine learning models. The bivariate heatmap can also give an idea of which pairs of variables might be useful for creating new features. </p>
+                       <iframe width="1000" height="700" title="Boxplots" 
+	src="{{ url_for('static', filename = 'images/heatmap.html') }}"></iframe> 
+                      
+                    </div>
                     <div class="col-lg-8">
                         <h3>Exploration of Data: Confusion Matrix Heatmap</h3>
                         <p class="lead">We've trained and tested the model, generating the following heatmap.</p>
